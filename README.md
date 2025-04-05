@@ -1,1 +1,3 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/x_DJ96am)
+# TRABAJO PRACTICO 2
+
+    En este trabajo práctico se busca repasar lo ya aprendido sobre el uso de git, conocer nuevos comandos para distintas funcionalidades y repasar la forma en la que trabaja el lenguaje C con la memoria de la máquina.
