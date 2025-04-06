@@ -24,8 +24,46 @@ int main(){
     srand(time(NULL));
     computadora computadoras[MAX], *puntero_pc = computadoras; // Arreglo de computadoras y puntero a la primera computadora
     iniciarComputadoras(puntero_pc); // Llama a la función para inicializar las computadoras
-    listarComputadoras(puntero_pc, MAX); // Llama a la función para listar todas las computadoras    
+    
+    int opcion = 0; // Variable para almacenar la opción del menú
+    do
+    {
+        printf("\n\t\t\tMENU DE FUNCIONES\n");
+        printf("\t\t\t-----------------\n");
+        printf("\t1. Mostrar todas las computadoras\n");
+        printf("\t2. Mostrar la computadora mas vieja\n");
+        printf("\t3. Mostrar la computadora mas veloz\n");
+        printf("\t4. SALIR\n");
+        scanf("%d", &opcion); // Lee la opción del usuario
+        switch (opcion)
+        {
+        case 1:
+            listarComputadoras(puntero_pc, MAX); // Llama a la función para listar todas las computadoras
+            break;
+        
+        case 2:
+            mostrarMasVieja(puntero_pc, MAX); // Llama a la función para mostrar la computadora mas vieja
+            break;
+        
+        case 3:
+            mostrarMasVeloz(puntero_pc, MAX); // Llama a la función para mostrar la computadora mas veloz
+            break;
 
+        default:
+            break;
+        }
+        if (opcion == 4) // Si la opción es 4, se sale del menú
+        {
+            printf("Saliendo del programa...\n");
+            liberarMemoria(puntero_pc); // Llama a la función para liberar la memoria asignada
+        }
+        else if (opcion < 1 || opcion > 4) // Si la opción no es valida, se muestra un mensaje de error
+        {
+            printf("Opción no valida. Por favor, elija una opción entre 1 y 4.\n");
+        }
+        printf("\n"); // Salto de línea 
+        
+    } while (opcion != 4); // Repite el menú hasta que la opción sea 6 (salir)
 
     return 0;
 }
@@ -53,7 +91,7 @@ void mostrarComputadora(computadora pc)
     // Muestra los detalles de una computadora
     printf("Velocidad: %d GHz\n", pc.velocidad);
     printf("Anio: %d\n", pc.anio);
-    printf("Cantidad de nubcleos: %d\n", pc.cantidad_nucleos);
+    printf("Cantidad de nucleos: %d\n", pc.cantidad_nucleos);
     printf("Tipo de CPU: %s\n", pc.tipo_cpu);
 }
 
@@ -66,5 +104,31 @@ void listarComputadoras(computadora lista[MAX], int cantidad)
         printf("\t----------------\n");
         mostrarComputadora(lista[i]);
         printf("\n");
+    }
+}
+
+void mostrarMasVieja(computadora lista[MAX], int cantidad)
+{
+    // Muestra la computadora mas vieja
+    int anio_mas_viejo = lista[0].anio;
+    int indice_mas_viejo = 0;
+    
+    for(int i = 1; i < cantidad; i++){
+        if(lista[i].anio < anio_mas_viejo){
+            anio_mas_viejo = lista[i].anio;
+            indice_mas_viejo = i;
+        }
+    }
+    
+    printf("La computadora mas vieja es:\n");
+    mostrarComputadora(lista[indice_mas_viejo]);
+    printf("\n");
+}
+
+void liberarMemoria(computadora *computadoras)
+{
+    // Libera la memoria asignada para el tipo de CPU de cada computadora
+    for(int i = 0; i < MAX; i++){
+        free(computadoras[i].tipo_cpu);
     }
 }
