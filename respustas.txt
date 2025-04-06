@@ -1,1 +1,2 @@
-    La razón de que no se vea en la rama main los archivos de la otra rama es porque cada rama representa una versión distinta del proyecto y git al cambiar de rama actualiza el contenido del directorio de trabajo para que coincida con el estado de esa rama.
+    La razón por la que en la rama main no se ven los archivos de la otra rama es que cada rama representa una versión distinta del proyecto, y Git, al cambiar de rama, actualiza el contenido del directorio de trabajo para que coincida con el estado de esa rama.
+    Luego, al introducir el comando: git merge Opcion_2 -m "merge Opcion_2"; ambas ramas combinan sus contenidos y, gráficamente, se nota cómo la rama Opcion_2 se separó y se volvió a unir a la principal.
