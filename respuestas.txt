@@ -1,0 +1,1 @@
+    La razón de que no se vea en la rama main los archivos de la otra rama es porque cada rama representa una versión distinta del proyecto y git al cambiar de rama actualiza el contenido del directorio de trabajo para que coincida con el estado de esa rama.
