@@ -34,6 +34,7 @@ int main(){
         printf("\t2. Mostrar la computadora mas vieja\n");
         printf("\t3. Mostrar la computadora mas veloz\n");
         printf("\t4. SALIR\n");
+        fflush(stdin); // Limpia el buffer de entrada
         scanf("%d", &opcion); // Lee la opción del usuario
         switch (opcion)
         {
@@ -63,8 +64,7 @@ int main(){
         }
         printf("\n"); // Salto de línea 
         
-    } while (opcion != 4); // Repite el menú hasta que la opción sea 6 (salir)
-    
+    } while (opcion != 4); // Repite el menú hasta que la opción sea 4 (salir)
 
     return 0;
 }
