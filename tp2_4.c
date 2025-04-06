@@ -24,7 +24,9 @@ int main(){
     srand(time(NULL));
     computadora computadoras[MAX], *puntero_pc = computadoras; // Arreglo de computadoras y puntero a la primera computadora
     iniciarComputadoras(puntero_pc); // Llama a la función para inicializar las computadoras
-    
+    listarComputadoras(puntero_pc, MAX); // Llama a la función para listar todas las computadoras    
+
+
     return 0;
 }
 
@@ -43,5 +45,26 @@ void iniciarComputadoras(computadora *computadoras){
             exit(1); // Termina el programa si no se pudo asignar memoria
         }
         strcpy(computadoras[i].tipo_cpu, tipos[cpu_random]); // Copia el tipo de CPU a la estructura  
+    }
+}
+
+void mostrarComputadora(computadora pc)
+{
+    // Muestra los detalles de una computadora
+    printf("Velocidad: %d GHz\n", pc.velocidad);
+    printf("Anio: %d\n", pc.anio);
+    printf("Cantidad de nubcleos: %d\n", pc.cantidad_nucleos);
+    printf("Tipo de CPU: %s\n", pc.tipo_cpu);
+}
+
+void listarComputadoras(computadora lista[MAX], int cantidad)
+{
+    // Muestra todas las computadoras en la lista
+    for(int i = 0; i < cantidad; i++){
+        printf("\tComputadora %d:\n", i + 1);
+        printf("\tDetalles:\n");
+        printf("\t----------------\n");
+        mostrarComputadora(lista[i]);
+        printf("\n");
     }
 }
